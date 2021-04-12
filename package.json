@@ -5,13 +5,13 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha",
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/godsonaniagudo/backdrop-assessment.git"
   },
-  "author": "Godson ANiagudo",
+  "author": "Godson Aniagudo",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/godsonaniagudo/backdrop-assessment/issues"
@@ -20,7 +20,6 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "chai": "^4.3.4",
-    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

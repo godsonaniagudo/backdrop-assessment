@@ -1,6 +1,7 @@
 const expect = require("chai").expect;
 const assert = require("chai").assert;
-const url = "http://localhost:8088";
+const PORT = process.env.PORT || 8088;
+const url = `http://localhost:${PORT}`;
 const request = require("supertest")(url);
 
 const validQuery = `{

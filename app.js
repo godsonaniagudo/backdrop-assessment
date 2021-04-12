@@ -1,20 +1,22 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
-const PORT = process.env.PORT || 8099;
-const graphQL = require("graphql");
+const PORT = process.env.PORT || 8088;
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./graphql");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const shortURLRoute = require("./routes/shortURL");
 const { errorType } = require("./errors");
+
+app.use(cors());
 
 const getErrorCode = (errorName) => {
   return errorType[errorName];
 };
 
 mongoose.connect(
-  "mongodb+srv://godson:Thesmartone1!@cluster0.uoonp.gcp.mongodb.net/urlShortener?retryWrites=true&w=majority",
+  process.env.MONGO_DB_CONNECTION_URL,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (result) => {
     console.log(result);
@@ -35,6 +37,6 @@ app.use(
 
 app.use("/", shortURLRoute);
 
-app.listen(8088, () => {
-  console.log("Server started on port 8099");
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });
